@@ -2,17 +2,23 @@ import React from "react";
 import "./TodoSearch.css";
 
 function TodoSearch() {
+  const [searcher, setSearcher] = React.useState("All");
+
   const onSearchValueChange = (e) => {
-    console.log(e.target.value);
+    setSearcher(e.target.value);
   };
 
   return (
-    <input
-      className="TodoSearch"
-      type="text"
-      placeholder="Search"
-      onChange={onSearchValueChange}
-    />
+    <React.Fragment>
+      <input
+        className="TodoSearch"
+        type="text"
+        placeholder="Search"
+        onChange={onSearchValueChange}
+      />
+
+      <p>Mostrando resultados de: {searcher}</p>
+    </React.Fragment>
   );
 }
 
