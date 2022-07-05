@@ -1,11 +1,9 @@
 import React from "react";
 import "./TodoSearch.css";
 
-function TodoSearch() {
-  const [searcher, setSearcher] = React.useState("All");
-
+function TodoSearch(props) {
   const onSearchValueChange = (e) => {
-    setSearcher(e.target.value);
+    props.setSearcherValue(e.target.value);
   };
 
   return (
@@ -17,7 +15,7 @@ function TodoSearch() {
         onChange={onSearchValueChange}
       />
 
-      <p>Mostrando resultados de: {searcher}</p>
+      <p>You are searching for: {props.searcherValue}</p>
     </React.Fragment>
   );
 }

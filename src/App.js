@@ -6,7 +6,7 @@ import { TodoList } from "./TodoList/TodoList";
 import { TodoItem } from "./TodoItem/TodoItem";
 import { CreateTodoButton } from "./CreateTodoButton/CreateTodoButton";
 
-const todos = [
+const defaultTodos = [
   { text: "Learn about React", completed: false },
   { text: "Meet friend for lunch", completed: false },
   { text: "Build really cool todo app", completed: false },
@@ -14,14 +14,24 @@ const todos = [
 ];
 
 function App() {
+  const [todos, setTodos] = React.useState(defaultTodos);
+  const [searcherValue, setSearcherValue] = React.useState("");
+
   return (
     <React.Fragment>
-      <TodoCounter />
+      <TodoCounter
+        todosLength={todos.length}
+        completedTodosLength={todos.filter((todo) => todo.completed).length}
+        setTodos={setTodos}
+      />
 
-      <TodoSearch />
+      <TodoSearch
+        searcherValue={searcherValue}
+        setSearcherValue={setSearcherValue}
+      />
 
       <TodoList>
-        {todos.map((todo) => (
+        {defaultTodos.map((todo) => (
           <TodoItem
             key={todo.text}
             text={todo.text}
