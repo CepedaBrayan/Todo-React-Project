@@ -10,7 +10,7 @@ const todos = [
   { text: "Learn about React", completed: false },
   { text: "Meet friend for lunch", completed: false },
   { text: "Build really cool todo app", completed: false },
-  { text: "Have a beer", completed: true },
+  { text: "Have a coffee", completed: true },
 ];
 
 function App() {
