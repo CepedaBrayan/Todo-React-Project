@@ -11,6 +11,13 @@ import { AppUI } from "./App";
 
 function useLocalStorage(itemName, initialValue) {
   const [error, setError] = React.useState();
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+  }, []);
 
   let parsedItem;
   const localStorageItem = localStorage.getItem(itemName);
@@ -31,7 +38,7 @@ function useLocalStorage(itemName, initialValue) {
     }
   };
 
-  return { item, saveItem, error };
+  return { item, saveItem, error, loading };
 }
 
 function App() {
@@ -39,6 +46,7 @@ function App() {
     item: todos,
     saveItem: saveTodos,
     error,
+    loading,
   } = useLocalStorage("todos_v2", []);
 
   const [searcherValue, setSearcherValue] = React.useState("");
@@ -74,6 +82,7 @@ function App() {
 
   return (
     <AppUI
+      loading={loading}
       error={error}
       todosLength={todosLength}
       completedTodosLength={completedTodosLength}

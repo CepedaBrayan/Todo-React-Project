@@ -19,6 +19,7 @@ function AppUI(props) {
       />
 
       <TodoList>
+        {props.loading && <p>Loading...</p>}
         {props.error && <p>{props.error}</p>}
 
         {props.searchedTodos.map((todo) => (
