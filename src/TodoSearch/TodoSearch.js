@@ -1,7 +1,9 @@
 import React from "react";
 import "./TodoSearch.css";
+import { TodoContext } from "../TodoContext";
 
 function TodoSearchUI(props) {
+  const value = React.useContext(TodoContext);
   return (
     <React.Fragment>
       <input
@@ -11,7 +13,7 @@ function TodoSearchUI(props) {
         onChange={props.onSearchValueChange}
       />
 
-      <p>You are searching for: {props.searcherValue}</p>
+      <p>You are searching for: {value.searcherValue}</p>
     </React.Fragment>
   );
 }
