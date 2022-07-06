@@ -1,13 +1,23 @@
 import React from "react";
 import "./CreateTodoButton.css";
+import { TodoContext } from "../TodoContext";
 
 function CreateTodoButtonUI(props) {
-  <button
-    className="CreateTodoButton"
-    onClick={() => props.handleClick("Todo should be Created")}
-  >
-    +
-  </button>;
+  const value = React.useContext(TodoContext);
+  return (
+    <React.Fragment>
+      console.log(
+      {`CreateTodoButton ${value.openModal && "CloseCreateTodoButton"}`})
+      <button
+        className={`CreateTodoButton ${
+          value.openModal && "CloseCreateTodoButton"
+        }`}
+        onClick={() => value.setOpenModal(!value.openModal)}
+      >
+        +
+      </button>
+    </React.Fragment>
+  );
 }
 
 export { CreateTodoButtonUI };
