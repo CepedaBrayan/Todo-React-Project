@@ -6,12 +6,8 @@ function CreateTodoButtonUI(props) {
   const value = React.useContext(TodoContext);
   return (
     <React.Fragment>
-      console.log(
-      {`CreateTodoButton ${value.openModal && "CloseCreateTodoButton"}`})
       <button
-        className={`CreateTodoButton ${
-          value.openModal && "CloseCreateTodoButton"
-        }`}
+        className="CreateTodoButton"
         onClick={() => value.setOpenModal(!value.openModal)}
       >
         +
