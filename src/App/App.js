@@ -6,6 +6,7 @@ import { TodoItem } from "../TodoItem";
 import { CreateTodoButton } from "../CreateTodoButton";
 import { TodoContext } from "../TodoContext";
 import { Modal } from "../Modal";
+import { TodoForm } from "../TodoForm";
 
 function AppUI() {
   const value = React.useContext(TodoContext);
@@ -35,7 +36,7 @@ function AppUI() {
 
       {value.openModal && (
         <Modal>
-          <p>{value.searchedTodos[0]?.text}</p>
+          <TodoForm />
         </Modal>
       )}
 
