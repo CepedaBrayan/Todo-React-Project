@@ -19,7 +19,7 @@ function AppUI() {
         {value.error && <p>It was an error...</p>}
         {value.loading && <p>Loading...</p>}
         {!value.loading && !value.searchedTodos.length && (
-          <p>Create your first TODO!</p>
+          <p>There are no TODOS :(</p>
         )}
 
         {!value.loading &&
